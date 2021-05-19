@@ -6,10 +6,6 @@ import kotlinx.coroutines.flow.Flow
 
 class LocalDataSource(private val movieDao: com.dicoding.androidprogramming.submissionmade.core.data.source.local.room.MovieDao) {
 
-    companion object {
-        private var instance: LocalDataSource? = null
-    }
-
     fun getAllMovies(): Flow<List<MovieEntity>> = movieDao.getAllMovies()
 
     fun getFavoriteMovies(): Flow<List<MovieEntity>> = movieDao.getFavoriteMovies()

@@ -15,11 +15,6 @@ class MovieRepository(
     private val appExecutors: AppExecutors
 ) : IMovieRepository {
 
-    companion object {
-        @Volatile
-        private var instance: MovieRepository? = null
-    }
-
     override fun getAllMovies(): Flow<Resource<List<Movies>>> =
         object : com.dicoding.androidprogramming.submissionmade.core.data.NetworkBoundResource<List<Movies>, List<MovieResponse>>() {
             override fun loadFromDB(): Flow<List<Movies>> {
